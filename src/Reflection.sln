@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoadPlugin", "LoadPlugin\LoadPlugin.csproj", "{6AF274A7-5F82-4C90-B425-64958ED0A8D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin", "Plugin\Plugin.csproj", "{F9029A80-66D8-47D7-AE2D-9705FB1364FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interface", "Interface\Interface.csproj", "{1F0F5E64-E0A0-4983-BB0C-D7217F366E76}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6AF274A7-5F82-4C90-B425-64958ED0A8D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AF274A7-5F82-4C90-B425-64958ED0A8D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AF274A7-5F82-4C90-B425-64958ED0A8D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AF274A7-5F82-4C90-B425-64958ED0A8D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9029A80-66D8-47D7-AE2D-9705FB1364FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9029A80-66D8-47D7-AE2D-9705FB1364FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9029A80-66D8-47D7-AE2D-9705FB1364FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9029A80-66D8-47D7-AE2D-9705FB1364FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F0F5E64-E0A0-4983-BB0C-D7217F366E76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F0F5E64-E0A0-4983-BB0C-D7217F366E76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F0F5E64-E0A0-4983-BB0C-D7217F366E76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F0F5E64-E0A0-4983-BB0C-D7217F366E76}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {113EF65C-7FB2-4292-AE08-8A9F3F458162}
+	EndGlobalSection
+EndGlobal
