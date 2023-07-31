@@ -9,11 +9,11 @@ public class Program
     {
         // Setup assembly requirements and load all plugins.
         Setup.PluginDirectory();
-        PluginLoader pluginLoader = new PluginLoader();
+        List<Plugin> plugins = PluginLoader.Load();
 
 
         // Write basic Plugin information in console.
-        foreach (Plugin plugin in pluginLoader.Plugins)
+        foreach (Plugin plugin in plugins)
         {
             Console.WriteLine();
             Console.WriteLine($"Plugin was found: {plugin.Name} by {plugin.Author} in version {plugin.Version}");

@@ -6,7 +6,7 @@ namespace LoadPlugin;
 /// <summary>
 /// Load alle plugin assemblies and the supported plugin types.
 /// </summary>
-internal class PluginLoader
+internal static class PluginLoader
 {
     /// <summary>
     /// Search pattern to identify supported files by file extention.
@@ -14,33 +14,29 @@ internal class PluginLoader
     private const string pluginSearchPattern = "*.dll";
 
     /// <summary>
-    /// List of all found assemblies in the plugin directory.
-    /// </summary>
-    private List<Assembly> pluginAssemblies = new List<Assembly>();
-
-    /// <summary>
-    /// List of all supported Plugin Types.
-    /// </summary>
-    public List<Plugin> Plugins = new List<Plugin>();
-
-    /// <summary>
     /// Identify and load all '.dll' files from the plugin directory.
     /// </summary>
-    private void LoadAssemblies()
+    /// <returns>List of all assemblies from the plugin directory.</returns>
+    private static List<Assembly> LoadAssemblies()
     {
+        List<Assembly> assemblies = new List<Assembly>();
         foreach (string pluginPath in Directory.GetFiles(SetupHelpers.PluginPath, pluginSearchPattern))
         {
             Assembly assembly = Assembly.LoadFrom(pluginPath);
-            pluginAssemblies.Add(assembly);
+            assemblies.Add(assembly);
         }
+        return assemblies;
     }
 
     /// <summary>
-    /// Create list of all supprted Types from all assemblies in the plugin directory.
+    /// Get list of all supprted Types from all assemblies in the plugin directory.
     /// </summary>
-    private void IdentifyPluginTypes()
+    /// <param name="assemblies"></param>
+    /// <returns>List of supported plugins.</returns>
+    private static List<Plugin> IdentifyPluginTypes(List<Assembly> assemblies)
     {
-        foreach(Assembly assembly in pluginAssemblies)
+        List<Plugin> plugins = new List<Plugin>();
+        foreach(Assembly assembly in assemblies)
         {
             Type[] pluginTypes = assembly.GetTypes();
             foreach (Type pluginType in pluginTypes)
@@ -49,18 +45,21 @@ internal class PluginLoader
                 Type? type = pluginType.GetInterface(nameof(IPlugin));
                 if(type != null)
                 {
-                    Plugins.Add(new Plugin(pluginType));
+                    plugins.Add(new Plugin(pluginType));
                 }
             }
         }
+        return plugins;
     }
 
     /// <summary>
-    /// Create a plugin loader object that automatically loads all plugin applications and lists supported plugin types.
+    /// Load all supported plugins from the plugin directory.
     /// </summary>
-    public PluginLoader()
+    /// <returns>List of supported plugins.</returns>
+    public static List<Plugin> Load()
     {
-        LoadAssemblies();
-        IdentifyPluginTypes();
+        List<Assembly> assemblies = LoadAssemblies();
+        return IdentifyPluginTypes(assemblies);
+
     }
 }
